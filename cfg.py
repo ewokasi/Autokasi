@@ -74,6 +74,10 @@ async def п(ctx, arg):
                     bounce = str(output[7])
                     bounce = bounce[4:len(bounce) - 5]
                     speed = str(output[8])
+                    seller = str(output[9].text)
+
+
+
 
                     speed = speed[4:len(speed) - 5]
                     if name not in bilo:
@@ -83,9 +87,23 @@ async def п(ctx, arg):
 
                     if "шт" in table.extract():
                         continue
-                    await ctx.send(f" {icon}")
-                    await ctx.send(f"```{name}, \nУрон:{dmg}, Пробитие: {pen}, Урон броне: {armordmg}%, Скорость: {speed}```")
+
+                    embed= discord.Embed(
+                        #title = name,
+                        #description= f"Урон: {dmg}, Пробитие: {pen}, Урон броне: {armordmg}%, Скорость: {speed}",
+                        colour= discord.Colour.from_rgb(0,0,0)
+                    )
+                    embed.add_field(name=name, value=f"Урон: **{dmg}**,     Пробитие: **{pen}** \n Урон броне: **{armordmg}%** ,  Скорость: **{speed}**\n ", inline=False)
+                    embed.set_thumbnail(url=icon)
+                    if seller:
+                        embed.set_footer(text=f"Продает {seller}")
+                    else:
+                        embed.set_footer(text=f"Нельзя купить у торговцев")
+                    await ctx.send(embed=embed)
+
+
                     flag=1
+
                     print(c)
                     if c == len(set(soup.findAll(text=re.compile(i)))):
                         break

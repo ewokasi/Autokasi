@@ -42,7 +42,7 @@
  [],
  False,
  False,
- 1618463132,
+ 1618668683,
  [('run.exe',
    'c:\\users\\progr\\pycharmprojects\\tarkovsammo\\venv\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\run.exe',
    'EXECUTABLE')])
